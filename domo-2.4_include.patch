@@ -1,0 +1,12 @@
+diff -urN domo-2.4_oryg/domo.pro domo-2.4/domo.pro
+--- domo-2.4_oryg/domo.pro	2004-08-31 23:24:15.000000000 +0200
++++ domo-2.4/domo.pro	2005-06-14 20:23:06.000000000 +0200
+@@ -5,7 +5,7 @@
+ 
+ unix:LIBS	+= -lmusicbrainz -lvorbisfile -lmad -ltag
+ 
+-unix:INCLUDEPATH	+= /usr/include/musicbrainz/ /usr/include/taglib
++unix:INCLUDEPATH	+= /usr/include/musicbrainz/ /usr/include/taglib /usr/include/qt
+ 
+ HEADERS	+= audiocd.h \
+ 	cd.h \
