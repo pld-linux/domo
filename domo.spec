@@ -9,18 +9,12 @@ Source0:	http://dl.sourceforge.net/domo/%{name}-%{version}.tar.gz
 # Source0-md5:	9a1b631b81b3b84145cfe4d336310622
 Patch0:		%{name}-%{version}_include.patch
 URL:		http://domo.sf.net
+BuildRequires:	qt-devel >= 3.3.4
+BuildRequires:	qt-plugin-mysql >= 3.3.4
 BuildRequires:	taglib-devel >= 1.2
 BuildRequires:	libmusicbrainz >= 2.0
 BuildRequires:	libmad-devel
-BuildRequires:	libogg-devel
-BuildRequires:	qt-devel >= 3.3.2
 BuildRequires:	libvorbis-devel
-Requires:	taglib >= 1.2
-Requires:	libmusicbrainz >= 2.0
-Requires:	libmad
-Requires:	libogg
-Requires:	qt >= 3.3.2
-Requires:	libvorbis
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
