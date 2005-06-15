@@ -1,5 +1,5 @@
-Summary:	A music organising database application.
-Summary(pl):	Organizator aplikacji muzycznych.
+Summary:	A music organising database application
+Summary(pl):	Organizator aplikacji muzycznych
 Name:		domo
 Version:	2.4
 Release:	0.1
