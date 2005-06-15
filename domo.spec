@@ -5,32 +5,34 @@ Version:	2.4
 Release:	0.1
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	http://puzzle.dl.sourceforge.net/sourceforge/domo/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/domo/%{name}-%{version}.tar.gz
 # Source0-md5:	9a1b631b81b3b84145cfe4d336310622
 URL:		http://domo.sf.net
-BuildRequires: taglib-devel >= 1.2 
-BuildRequires:	libmusicbrainz >= 2.0 
-BuildRequires:	libmad-devel 
+BuildRequires:	taglib-devel >= 1.2
+BuildRequires:	libmusicbrainz >= 2.0
+BuildRequires:	libmad-devel
 BuildRequires:	libogg-devel
-BuildRequires: qt-devel >= 3.3.2
-BuildRequires: libvorbis-devel
-Requires:      taglib >= 1.2
-Requires: 	libmusicbrainz >= 2.0
-Requires:	 libmad
-Requires:	 libogg
-Requires: 	qt >= 3.3.2
-Requires: 	libvorbis
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
+BuildRequires:	qt-devel >= 3.3.2
+BuildRequires:	libvorbis-devel
+Requires:	taglib >= 1.2
+Requires:	libmusicbrainz >= 2.0
+Requires:	libmad
+Requires:	libogg
+Requires:	qt >= 3.3.2
+Requires:	libvorbis
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Domo is a music organizer which indexes digital audio sources, extracts all information
-and inserts everything into a relational database. The database can then be queried,
-exported and compared with other digital audio sources. Musicbrainz support is also
-available for the looking up of Audio CDs or for identifying unknown tracks based
-on their TRM audio fingerprint.
+Domo is a music organizer which indexes digital audio sources,
+extracts all information and inserts everything into a relational
+database. The database can then be queried, exported and compared with
+other digital audio sources. Musicbrainz support is also available for
+the looking up of Audio CDs or for identifying unknown tracks based on
+their TRM audio fingerprint.
 
 %description -l pl
-Domo jest organizerem muzyki, który indeksuje cyfrowe ¼ród³a d¼wiêku, wydobywa ca³± informacjê oraz umieszcz± j± w bazie danych.
+Domo jest organizerem muzyki, który indeksuje cyfrowe ¼ród³a d¼wiêku,
+wydobywa ca³± informacjê oraz umieszcz± j± w bazie danych.
 
 %prep
 %setup -q
@@ -38,10 +40,10 @@ Domo jest organizerem muzyki, który indeksuje cyfrowe ¼ród³a d¼wiêku, wydobywa c
 %build
 
 # Create the language files
-/usr/bin/lrelease domo.pro
+%{_bindir}/lrelease domo.pro
 
 # Create the makefile
-/usr/bin/qmake domo.pro
+%{_bindir}/qmake domo.pro
 
 # Compile
 %{__make}
@@ -58,7 +60,8 @@ rm -rf %{buildroot}
 %postun	-p /sbin/ldconfig
 
 %files
-%{_bindir}/domo
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/domo
 %dir %{_sysconfdir}/domo
 %dir %{_sysconfdir}/domo/resources/
 %{_sysconfdir}/domo/resources/*.txt
