@@ -1,3 +1,7 @@
+# TODO:
+# - lang() for *.qm
+# - data in /etc ???
+# - is INSTALL file useful in rpm?
 Summary:	A music organising database application
 Summary(pl):	Organizator aplikacji muzycznych
 Name:		domo
@@ -9,12 +13,14 @@ Source0:	http://dl.sourceforge.net/domo/%{name}-%{version}.tar.gz
 # Source0-md5:	9a1b631b81b3b84145cfe4d336310622
 Patch0:		%{name}-%{version}_include.patch
 URL:		http://domo.sf.net
+BuildRequires:	libmad-devel
+BuildRequires:	libmusicbrainz >= 2.0
+BuildRequires:	libvorbis-devel
+BuildRequires:	qmake
 BuildRequires:	qt-devel >= 3.3.4
+BuildRequires:	qt-liguist
 BuildRequires:	qt-plugin-mysql >= 3.3.4
 BuildRequires:	taglib-devel >= 1.2
-BuildRequires:	libmusicbrainz >= 2.0
-BuildRequires:	libmad-devel
-BuildRequires:	libvorbis-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -27,19 +33,22 @@ their TRM audio fingerprint.
 
 %description -l pl
 Domo jest organizerem muzyki, który indeksuje cyfrowe ¼ród³a d¼wiêku,
-wydobywa ca³± informacjê oraz umieszcz± j± w bazie danych.
+wydobywa wszystkie informacje i umieszcz± je w relacyjnej bazie
+danych. Bazê danych mo¿na odpytywaæ, eksportowaæ i porównywaæ z innymi
+cyfrowymi ¼ród³ami d¼wiêku. Dostêpna jest obs³uga Musicbrainz do
+wyszukiwania p³yt CD Audio albo identyfikowania nieznanych ¶cie¿ek w
+oparciu o ich odcisk d¼wiêkowy TRM.
 
 %prep
 %setup -q
 %patch0 -p1
 
 %build
-
 # Create the language files
-%{_bindir}/lrelease domo.pro
+lrelease domo.pro
 
 # Create the makefile
-%{_bindir}/qmake domo.pro
+qmake domo.pro
 
 # Compile
 %{__make}
@@ -47,25 +56,25 @@ wydobywa ca³± informacjê oraz umieszcz± j± w bazie danych.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
 %clean
-rm -rf %{buildroot}
+rm -rf $RPM_BUILD_ROOT
 
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
+%doc INSTALL RELEASE README CHANGELOG
 %attr(755,root,root) %{_bindir}/domo
 %dir %{_sysconfdir}/domo
-%dir %{_sysconfdir}/domo/resources/
+%dir %{_sysconfdir}/domo/resources
 %{_sysconfdir}/domo/resources/*.txt
-%dir %{_sysconfdir}/domo/images/
+%dir %{_sysconfdir}/domo/images
 %{_sysconfdir}/domo/images/*.png
-%dir %{_sysconfdir}/domo/languages/
+%dir %{_sysconfdir}/domo/languages
 %{_sysconfdir}/domo/languages/*.qm
 %dir %{_sysconfdir}/domo/doc
 %dir %{_sysconfdir}/domo/doc/*
-
-%doc INSTALL RELEASE README CHANGELOG
