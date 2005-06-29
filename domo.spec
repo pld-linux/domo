@@ -18,7 +18,7 @@ BuildRequires:	libmusicbrainz >= 2.0
 BuildRequires:	libvorbis-devel
 BuildRequires:	qmake
 BuildRequires:	qt-devel >= 3.3.4
-BuildRequires:	qt-liguist
+BuildRequires:	qt-linguist
 BuildRequires:	qt-plugin-mysql >= 3.3.4
 BuildRequires:	taglib-devel >= 1.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
