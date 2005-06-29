@@ -12,6 +12,7 @@ Group:		X11/Applications/Multimedia
 Source0:	http://dl.sourceforge.net/domo/%{name}-%{version}.tar.gz
 # Source0-md5:	9a1b631b81b3b84145cfe4d336310622
 Patch0:		%{name}-%{version}_include.patch
+Patch1:		%{name}-%{version}_pro.patch
 URL:		http://domo.sf.net
 BuildRequires:	libmad-devel
 BuildRequires:	libmusicbrainz >= 2.0
@@ -42,6 +43,7 @@ oparciu o ich odcisk d¼wiêkowy TRM.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 # Create the language files
