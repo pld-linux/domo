@@ -1,0 +1,29 @@
+diff -urN domo-2.4_oryg/domo.pro domo-2.4/domo.pro
+--- domo-2.4_oryg/domo.pro	2004-08-31 23:24:15.000000000 +0200
++++ domo-2.4/domo.pro	2005-06-30 00:31:03.000000000 +0200
+@@ -235,20 +235,20 @@
+ 
+ DISTFILES += *.spec resources/*.txt images/splashscreen.png languages/*.qm INSTALL RELEASE README CHANGELOG COPYING
+ 
+-documentation.path = /etc/domo/doc
++documentation.path = %{datadir}/domo/doc
+ documentation.files = INSTALL RELEASE README CHANGELOG COPYING
+ INSTALLS += documentation
+ 
+-resources.path = /etc/domo/resources
++resources.path = %{datadir}/domo/resources
+ resources.files = resources/*.txt
+ INSTALLS += resources
+ 
+-images.path = /etc/domo/images
++images.path = %{datadir}/domo/images
+ images.files = images/splashscreen.png
+ INSTALLS += images
+ 
+-languages.path = /etc/domo/languages
+-languages.extra = $(QTDIR)/bin/lrelease domo.pro
++languages.path = %{datadir}/domo/languages
++languages.extra = /usr/bin/lrelease domo.pro
+ languages.files = languages/*.qm
+ INSTALLS += languages
+ 
