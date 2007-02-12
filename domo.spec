@@ -3,7 +3,7 @@
 # - data in /etc ???
 # - is INSTALL file useful in rpm?
 Summary:	A music organising database application
-Summary(pl):	Organizator aplikacji muzycznych
+Summary(pl.UTF-8):   Organizator aplikacji muzycznych
 Name:		domo
 Version:	2.4
 Release:	0.1
@@ -32,13 +32,13 @@ other digital audio sources. Musicbrainz support is also available for
 the looking up of Audio CDs or for identifying unknown tracks based on
 their TRM audio fingerprint.
 
-%description -l pl
-Domo jest organizerem muzyki, który indeksuje cyfrowe ¼ród³a d¼wiêku,
-wydobywa wszystkie informacje i umieszcz± je w relacyjnej bazie
-danych. Bazê danych mo¿na odpytywaæ, eksportowaæ i porównywaæ z innymi
-cyfrowymi ¼ród³ami d¼wiêku. Dostêpna jest obs³uga Musicbrainz do
-wyszukiwania p³yt CD Audio albo identyfikowania nieznanych ¶cie¿ek w
-oparciu o ich odcisk d¼wiêkowy TRM.
+%description -l pl.UTF-8
+Domo jest organizerem muzyki, ktÃ³ry indeksuje cyfrowe ÅºrÃ³dÅ‚a dÅºwiÄ™ku,
+wydobywa wszystkie informacje i umieszczÄ… je w relacyjnej bazie
+danych. BazÄ™ danych moÅ¼na odpytywaÄ‡, eksportowaÄ‡ i porÃ³wnywaÄ‡ z innymi
+cyfrowymi ÅºrÃ³dÅ‚ami dÅºwiÄ™ku. DostÄ™pna jest obsÅ‚uga Musicbrainz do
+wyszukiwania pÅ‚yt CD Audio albo identyfikowania nieznanych Å›cieÅ¼ek w
+oparciu o ich odcisk dÅºwiÄ™kowy TRM.
 
 %prep
 %setup -q
