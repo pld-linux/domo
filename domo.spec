@@ -3,7 +3,7 @@
 # - data in /etc ???
 # - is INSTALL file useful in rpm?
 Summary:	A music organising database application
-Summary(pl.UTF-8):   Organizator aplikacji muzycznych
+Summary(pl.UTF-8):	Organizator aplikacji muzycznych
 Name:		domo
 Version:	2.4
 Release:	0.1
